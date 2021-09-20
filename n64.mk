@@ -70,7 +70,7 @@ $(BUILD_DIR)/%.o: $(SOURCE_DIR)/%.S
 	@mkdir -p $(dir $@)
 	set -e; if case $(notdir $(basename $@)) in "rsp"*) true;; *) false;; esac; then \
 		echo "    [RSP] $<"; \
-		$(N64_CC) $(N64_ASFLAGS) -nostartfiles -MMD -Wl,-Ttext=0x1000 -Wl,-Tdata=0x0 -Wl,-e0x1000 -o $@ $<; \
+		$(N64_CC) $(ASFLAGS) -nostartfiles -MMD -Wl,-Ttext=0x1000 -Wl,-Tdata=0x0 -Wl,-e0x1000 -o $@ $<; \
 		$(N64_OBJCOPY) -O binary -j .text $@ $(basename $@).text.bin; \
 		$(N64_OBJCOPY) -O binary -j .data $@ $(basename $@).data.bin; \
 		$(N64_OBJCOPY) -I binary -O elf32-bigmips -B mips4300 \

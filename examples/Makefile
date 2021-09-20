@@ -1,5 +1,5 @@
-all: cpptest ctest dfsdemo mptest mputest spritemap test timers vrutest vtest ucodetest
-clean: cpptest-clean ctest-clean dfsdemo-clean mptest-clean mputest-clean spritemap-clean test-clean timers-clean vrutest-clean vtest-clean ucodetest-clean
+all: cpptest ctest dfsdemo mptest mputest spritemap test timers vrutest vtest ucodetest ugfxtest
+clean: cpptest-clean ctest-clean dfsdemo-clean mptest-clean mputest-clean spritemap-clean test-clean timers-clean vrutest-clean vtest-clean ucodetest-clean ugfxtest-clean
 
 cpptest:
 	$(MAKE) -C cpptest
@@ -56,5 +56,10 @@ ucodetest:
 ucodetest-clean:
 	$(MAKE) -C ucodetest clean
 
-.PHONY: cpptest cpptest-clean ctest ctest-clean dfsdemo dfsdemo-clean mptest mptest-clean mputest mputest-clean spritemap spritemap-clean
-.PHONY: test test-clean timers timers-clean vrutest vrutest-clean vtest vtest-clean ucodetest ucodetest-clean
+ugfxtest:
+	$(MAKE) -C ugfxtest
+ugfxtest-clean:
+	$(MAKE) -C ugfxtest clean
+
+.PHONY: cpptest cpptest-clean ctest ctest-clean dfsdemo dfsdemo-clean mptest mptest-clean mputest mputest-clean spritemap spritemap-clean 
+.PHONY: test test-clean timers timers-clean vrutest vrutest-clean vtest vtest-clean ucodetest ucodetest-clean ugfxtest ugfxtest-clean

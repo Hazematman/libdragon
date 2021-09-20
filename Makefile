@@ -29,7 +29,8 @@ libdragon.a: $(BUILD_DIR)/n64sys.o $(BUILD_DIR)/interrupt.o \
 			 $(BUILD_DIR)/eepromfs.o $(BUILD_DIR)/mempak.o \
 			 $(BUILD_DIR)/tpak.o $(BUILD_DIR)/graphics.o $(BUILD_DIR)/rdp.o \
 			 $(BUILD_DIR)/rsp.o $(BUILD_DIR)/dma.o $(BUILD_DIR)/timer.o \
-			 $(BUILD_DIR)/exception.o $(BUILD_DIR)/do_ctors.o
+			 $(BUILD_DIR)/exception.o $(BUILD_DIR)/do_ctors.o \
+			 $(BUILD_DIR)/ugfx.o $(BUILD_DIR)/ugfx/rsp_ugfx.o
 	@echo "    [AR] $@"
 	$(AR) -rcs -o $@ $^
 
@@ -92,6 +93,7 @@ install: install-mk libdragon
 	install -Cv -m 0644 include/ucode.S $(INSTALLDIR)/mips64-elf/include/ucode.S
 	install -Cv -m 0644 include/rsp.inc $(INSTALLDIR)/mips64-elf/include/rsp.inc
 	install -Cv -m 0644 include/rsp_dma.inc $(INSTALLDIR)/mips64-elf/include/rsp_dma.inc
+	install -Cv -m 0644 include/ugfx.h $(INSTALLDIR)/mips64-elf/include/ugfx.h
 
 clean:
 	rm -f *.o *.a
